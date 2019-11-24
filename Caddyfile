@@ -1,0 +1,18 @@
+0.0.0.0:80
+root /srv
+
+prometheus 0.0.0.0:9180
+
+gzip {
+  ext .js .css
+}
+
+browse
+ext    .html
+log stdout
+
+cache {
+  match_header Content-Type image/jpg image/png
+  status_header X-Cache-Status
+  default_max_age 15m
+}
